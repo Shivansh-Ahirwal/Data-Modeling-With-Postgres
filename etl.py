@@ -22,7 +22,7 @@ def process_log_data_file(filepath,cur):
         df = pd.read_json(file,lines = True)
         user_data = df[["userId","firstName","lastName","gender","level"]].values.tolist()
     
-    cur.executemany(INSERT_INTO_USER_DATA_TABLE,user_data)
+    cur.executemany(INSERT_INTO_USER_TABLE,user_data)
 
     temp_df=df[df["page"]=="NextSong"].copy()
     
